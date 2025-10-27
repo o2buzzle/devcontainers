@@ -58,6 +58,8 @@ RUN python3 -m ensurepip && \
     python3 -m pip install --upgrade pip && \
     python3 -m pip install cmake==3.24.2
 
+RUN ln /usr/bin/clangd-17 /usr/bin/clangd
+
 # Install Rust for user
 USER vscode
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
