@@ -61,4 +61,4 @@ RUN python3 -m ensurepip && \
 # Install Rust for user
 USER vscode
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-ENV PATH="/home/${USERNAME}/.cargo/bin:${PATH}"
+ENV PATH="/home/vscode/.cargo/bin:${PATH}"
