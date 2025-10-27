@@ -58,6 +58,17 @@ RUN python3 -m ensurepip && \
     python3 -m pip install --upgrade pip && \
     python3 -m pip install cmake==3.24.2
 
+# Install openmpi-5.0.7
+RUN wget https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.7.tar.gz && \
+    tar -xvf openmpi-5.0.7.tar.gz && \
+    cd openmpi-5.0.7 && \
+    ./configure --prefix=/opt/openmpi-5.0.7 && \
+    make -j$(nproc) all && \
+    make install && \
+    ldconfig && \
+    cd .. && \
+    rm -rf openmpi-5.0.7 openmpi-5.0.7.tar.gz
+
 RUN ln /usr/bin/clangd-17 /usr/bin/clangd
 
 # Install Rust for user
